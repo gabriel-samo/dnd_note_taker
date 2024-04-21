@@ -1,0 +1,16 @@
+{
+  "extends":"../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "module": "commonjs",
+    "target": "ES5",
+    // allow an easy-to-write import statements, the two lines bellow
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "lib": ["ES2017"],
+    "types": ["node", "express"],
+    // add where the types will be, in my case: '../../node_modules/@types'
+    "typeRoots": ["./src/server/types","../../node_modules/@types"]
+  },
+  "include": ["."]
+}
