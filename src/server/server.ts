@@ -8,6 +8,7 @@ import {
   globalErrorHandler,
   notFoundHandler,
 } from "./middlewares/error-handles";
+import { configurePassport } from "./middlewares/passport";
 
 const app = express();
 
@@ -15,6 +16,7 @@ const app = express();
 app.get("/status", (req, res) => res.sendStatus(200));
 app.head("/status", (req, res) => res.sendStatus(200));
 
+configurePassport(app);
 app.use(express.static("public"));
 app.use(express.json());
 app.use(morgan("dev"));
@@ -27,5 +29,11 @@ app.listen(config.app.port, () => {
 });
 
 // testing
+
 // import { v4 as uuid } from "uuid";
 // console.log(uuid());
+
+// import bcrypt from "bcrypt";
+// const salt = bcrypt.genSaltSync(10);
+// const hash = bcrypt.hashSync("password123", salt);
+// console.log(hash);

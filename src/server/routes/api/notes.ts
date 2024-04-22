@@ -1,11 +1,13 @@
 import { Router } from "express";
+import db from "../../db";
 
 const router = Router();
 
 // GET /api/notes/
-router.get("/", (req, res, next) => {
+router.get("/", async (req, res, next) => {
   try {
-    res.json("get all notes");
+    const results = await db.notes.all();
+    res.json(results);
   } catch (error) {
     next(error);
   }

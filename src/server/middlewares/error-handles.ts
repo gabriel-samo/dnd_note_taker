@@ -1,9 +1,9 @@
-import express from "express";
+import type { Request, Response, NextFunction } from "express";
 
 export const notFoundHandler = (
-  req: express.Request,
-  res: express.Response,
-  next: express.NextFunction
+  req: Request,
+  res: Response,
+  next: NextFunction
 ) => {
   const error = new Error(`${req.method} ${req.originalUrl} not found`);
   error["status"] = 404;
@@ -12,9 +12,9 @@ export const notFoundHandler = (
 
 export const globalErrorHandler = (
   error: Error,
-  req: express.Request,
-  res: express.Response,
-  next: express.NextFunction
+  req: Request,
+  res: Response,
+  next: NextFunction
 ) => {
   console.log(error);
   res.status(error["status"] || 500);
