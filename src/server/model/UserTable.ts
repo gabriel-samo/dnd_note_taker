@@ -1,4 +1,4 @@
-export interface User {
+export interface UserTable {
   id?: string;
   email?: string;
   password?: string;

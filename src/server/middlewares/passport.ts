@@ -22,12 +22,12 @@ export function configurePassport(app: Express) {
             (await bcrypt.compare(password, foundUser.password))
           ) {
             delete foundUser.password;
-            done(null, foundUser);
+            return done(null, foundUser);
           }
           // if not, done(bad)
-          done(null, false, { message: "invalid credentials" });
+          return done(null, false, { message: "invalid credentials" });
         } catch (error) {
-          done(error);
+          return done(error);
         }
       }
     )

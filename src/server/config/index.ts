@@ -13,4 +13,8 @@ export default {
     database: process.env.DB_SCHEMA,
     dateStrings: true,
   },
+  jwt: {
+    secret: process.env.JWT_SECRET,
+    expires: process.env.JWT_EXPIRES,
+  },
 };
